@@ -59,7 +59,7 @@ build:
   - name: vanilla
     title: Vanilla WordPress
     repo: https://github.com/wodby/wordpress-vanilla
-    branch: 6.x
+    branch: main
 
 settings:
 - name: docroot
