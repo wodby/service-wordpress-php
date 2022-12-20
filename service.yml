@@ -1,0 +1,96 @@
+name: wordpress-php
+type: service
+from: php
+title: PHP (WordPress)
+labels:
+- wordpress
+
+update: auto
+
+containers:
+- name: php
+  image: wodby/wordpress-php
+
+volumes:
+- name: files
+  title: Files
+  shared: true
+  path: /mnt/files
+  size: 10
+
+cron:
+- name: cron
+  title: wp cron
+  command: wp cron event run --due-now --path="${HTTP_ROOT}" --url="${WODBY_URL_PRIMARY}"
+  schedule: 0 0 * * *
+
+
+env:
+- name: WP_AUTH_KEY
+  value: '{{wp_auth_key}}'
+  secret: true
+- name: WP_AUTH_SALT
+  value: '{{wp_auth_salt}}'
+  secret: true
+- name: WP_SECURE_AUTH_KEY
+  value: '{{wp_secure_auth_key}}'
+  secret: true
+- name: WP_SECURE_AUTH_SALT
+  value: '{{wp_secure_auth_salt}}'
+  secret: true
+- name: WP_LOGGED_IN_KEY
+  value: '{{wp_logged_in_key}}'
+  secret: true
+- name: WP_LOGGED_IN_SALT
+  value: '{{wp_logged_in_salt}}'
+  secret: true
+- name: WP_NONCE_KEY
+  value: '{{wp_nonce_key}}'
+  secret: true
+- name: WP_NONCE_SALT
+  value: '{{wp_nonce_salt}}'
+  secret: true
+
+
+build:
+  dockerfile: Dockerfile
+  connect: true
+  templates:
+  - name: vanilla
+    title: Vanilla WordPress
+    repo: https://github.com/wodby/wordpress-vanilla
+    branch: 6.x
+
+settings:
+- name: docroot
+  title: WordPress root subdirectory
+  description: Composer-based projects have WordPress under 'web' directory by default
+  placeholder: path/relative/to/git/root
+  default: web
+  var: DOCROOT_SUBDIR
+
+tokens:
+- name: wp_auth_key
+  generate:
+    regex: '[0-9a-z]{64}'
+- name: wp_auth_salt
+  generate:
+    regex: '[0-9a-z]{64}'
+- name: wp_secure_auth_key
+  generate:
+    regex: '[0-9a-z]{64}'
+- name: wp_secure_auth_salt
+  generate:
+    regex: '[0-9a-z]{64}'
+- name: wp_logged_in_key
+  generate:
+    regex: '[0-9a-z]{64}'
+- name: wp_logged_in_salt
+  generate:
+    regex: '[0-9a-z]{64}'
+- name: wp_nonce_key
+  generate:
+    regex: '[0-9a-z]{64}'
+- name: wp_nonce_salt
+  generate:
+    regex: '[0-9a-z]{64}'
