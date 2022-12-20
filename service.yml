@@ -50,9 +50,6 @@ env:
 - name: WP_NONCE_SALT
   value: '{{wp_nonce_salt}}'
   secret: true
-- name: WP_VERSION
-  value: '6'
-
 
 build:
   dockerfile: Dockerfile
