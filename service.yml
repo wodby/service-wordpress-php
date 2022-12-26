@@ -11,10 +11,18 @@ containers:
 - name: php
   image: wodby/wordpress-php
 
+links:
+- name: content
+  title: WP content storage
+  required: true
+  selectors:
+  - type: storage
+
 volumes:
-- name: files
-  title: Files
+- name: content
+  title: WP content
   shared: true
+  link: content
   path: /mnt/files
   size: 10
 
