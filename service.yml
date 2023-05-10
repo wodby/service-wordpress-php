@@ -21,10 +21,8 @@ links:
 volumes:
 - name: wp-content
   title: WP content
-  shared: true
   link: wp-content
   path: /mnt/files
-  size: 10
 
 cron:
 - name: cron
