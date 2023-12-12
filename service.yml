@@ -25,6 +25,9 @@ volumes:
   path: /mnt/files
   shared: true
   size: 10
+  import:
+    owner: 82
+    group: 82
 
 cron:
 - name: cron
