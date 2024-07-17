@@ -17,6 +17,23 @@ links:
   required: true
   selectors:
   - type: storage
+- name: redis
+  title: Redis
+  env:
+  - name: REDIS_PORT
+    value: '{{link.port}}'
+  - name: REDIS_HOST
+    value: '{{link.host}}'
+  - name: REDIS_PASSWORD
+    value: '{{link.tokens.password}}'
+    secret: true
+  selectors:
+  - type: datastore
+    labels:
+    - redis
+  - type: datastore
+    labels:
+    - valkey    
 
 volumes:
 - name: wp-content
