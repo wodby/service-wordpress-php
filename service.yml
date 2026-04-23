@@ -119,7 +119,10 @@ tokens:
     regex: '[0-9a-z]{64}'
 
 workloads:
-- id: main
+- name: main
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: '{{service.helm.release}}'
   kind: deployment
   primary: true
   containers:
