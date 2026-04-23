@@ -7,10 +7,6 @@ labels:
 
 update: auto
 
-containers:
-- name: php
-  image: wodby/wordpress-php
-
 links:
 - name: wp-content
   title: WP content storage
@@ -33,7 +29,7 @@ links:
     - redis
   - type: datastore
     labels:
-    - valkey    
+    - valkey
 
 volumes:
 - name: wp-content
@@ -121,3 +117,10 @@ tokens:
 - name: wp_nonce_salt
   generate:
     regex: '[0-9a-z]{64}'
+workloads:
+- id: main
+  kind: deployment
+  primary: true
+  containers:
+  - name: php
+    image: wodby/wordpress-php
