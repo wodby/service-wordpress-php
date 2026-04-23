@@ -117,6 +117,7 @@ tokens:
 - name: wp_nonce_salt
   generate:
     regex: '[0-9a-z]{64}'
+
 workloads:
 - id: main
   kind: deployment
