@@ -125,3 +125,4 @@ workloads:
   containers:
   - name: php
     image: wodby/wordpress-php
+    build: true
