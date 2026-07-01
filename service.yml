@@ -7,6 +7,12 @@ title: PHP (WordPress)
 labels:
 - wordpress
 
+options:
+- version: '8.5'
+  default: true
+- version: '8.4'
+- version: '8.3'
+- version: '8.2'
 
 links:
 - name: wp-content
