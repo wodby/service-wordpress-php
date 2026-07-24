@@ -9,10 +9,10 @@ configuration for PHP (WordPress).
 - [Wodby service documentation](https://wodby.com/docs/2.0/services/)
 - [Service manifest reference](https://wodby.com/docs/2.0/services/template/)
 
-## Start with a template
+## Start with a boilerplate
 
-Use one of the source templates exposed by this service to start with
-compatible build configuration and Wodby CI:
+Use one of the boilerplates exposed by this service to start with compatible
+build configuration and Wodby CI:
 
 - [Vanilla WordPress](https://github.com/wodby/wordpress-vanilla)
 
@@ -32,7 +32,7 @@ compatible build configuration and Wodby CI:
 | Containers | `php` using `wodby/wordpress-php`, build target |
 | Endpoints | None |
 | Service links | WP content storage (`wp-content`), required; Redis (`redis`), optional |
-| Application build | Git source connection enabled; Dockerfile: `Dockerfile`; starters: [Vanilla WordPress](https://github.com/wodby/wordpress-vanilla) |
+| Application build | Git source connection enabled; Dockerfile: `Dockerfile`; boilerplates: [Vanilla WordPress](https://github.com/wodby/wordpress-vanilla) |
 | Configuration and operations | 1 settings, 1 volumes, 1 cron schedules |
 
 ## Use this service

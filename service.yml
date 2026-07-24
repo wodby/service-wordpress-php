@@ -90,7 +90,7 @@ env:
 build:
   dockerfile: Dockerfile
   connect: true
-  templates:
+  boilerplates:
   - name: vanilla
     title: Vanilla WordPress
     repo: https://github.com/wodby/wordpress-vanilla
