@@ -2,7 +2,7 @@ name: wordpress-php
 type: service
 from: php
 fromVersionConstraint: "^1.0.0"
-fromVersion: "1.0.4"
+fromVersion: "1.0.5"
 title: PHP (WordPress)
 labels:
 - wordpress
