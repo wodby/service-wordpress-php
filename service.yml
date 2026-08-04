@@ -2,7 +2,7 @@ name: wordpress-php
 type: service
 from: php
 fromVersionConstraint: "^1.0.0"
-fromVersion: "1.0.5"
+fromVersion: "1.0.6"
 title: PHP (WordPress)
 labels:
 - wordpress
@@ -10,14 +10,14 @@ labels:
 options:
 - version: '8.5'
   default: true
-  tag: 8.5-4.80.3
+  tag: 8.5-4.80.4
 - version: '8.4'
-  tag: 8.4-4.80.3
+  tag: 8.4-4.80.4
 - version: '8.3'
-  tag: 8.3-4.80.3
+  tag: 8.3-4.80.4
 - version: '8.2'
 
-  tag: 8.2-4.80.3
+  tag: 8.2-4.80.4
 links:
 - name: wp-content
   title: WP content storage
