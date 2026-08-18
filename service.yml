@@ -86,9 +86,10 @@ env:
 - name: WP_NONCE_SALT
   value: '{{wp_nonce_salt}}'
   secret: true
+- name: WODBY_INIT_ACTION
+  value: init-wordpress
 
 build:
-  dockerfile: Dockerfile
   connect: true
   boilerplates:
   - name: vanilla
