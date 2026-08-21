@@ -105,7 +105,6 @@ settings:
   placeholder: path/relative/to/git/root
   default: web
   var: DOCROOT_SUBDIR
-  build: true
 
 tokens:
 - name: wp_auth_key
