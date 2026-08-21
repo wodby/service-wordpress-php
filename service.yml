@@ -10,14 +10,14 @@ labels:
 options:
 - version: '8.5'
   default: true
-  tag: 8.5-4.80.5
+  tag: 8.5-4.80.6
 - version: '8.4'
-  tag: 8.4-4.80.5
+  tag: 8.4-4.80.6
 - version: '8.3'
-  tag: 8.3-4.80.5
+  tag: 8.3-4.80.6
 - version: '8.2'
 
-  tag: 8.2-4.80.5
+  tag: 8.2-4.80.6
 links:
 - name: wp-content
   title: WP content storage
@@ -86,9 +86,10 @@ env:
 - name: WP_NONCE_SALT
   value: '{{wp_nonce_salt}}'
   secret: true
+- name: WODBY_INIT_ACTION
+  value: init-wordpress
 
 build:
-  dockerfile: Dockerfile
   connect: true
   boilerplates:
   - name: vanilla
@@ -104,7 +105,6 @@ settings:
   placeholder: path/relative/to/git/root
   default: web
   var: DOCROOT_SUBDIR
-  build: true
 
 tokens:
 - name: wp_auth_key
