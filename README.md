@@ -26,7 +26,7 @@ build configuration and Wodby CI:
 | --- | --- |
 | Service name | `wordpress-php` |
 | Type | Application service |
-| Inherits from | `php` with version constraint `^1.0.0` |
+| Inherits from | `php` with version constraint `^2.0.0` |
 | Versions | `8.5` by default; also available: `8.4`, `8.3`, `8.2` |
 | Workloads | `main` (Deployment, primary) |
 | Containers | `php` using `wodby/wordpress-php`, build target |
