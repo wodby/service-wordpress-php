@@ -2,7 +2,7 @@ name: wordpress-php
 type: service
 from: php
 fromVersionConstraint: "^3.0.0"
-fromVersion: "3.0.0"
+fromVersion: "3.0.1"
 title: PHP (WordPress)
 labels:
 - wordpress
@@ -146,3 +146,6 @@ workloads:
   - name: php
     image: wodby/wordpress-php
     build: true
+
+# Parent upgrades must not enable unvalidated workspace behavior.
+workspace: false
