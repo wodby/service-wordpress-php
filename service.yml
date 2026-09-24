@@ -10,13 +10,17 @@ labels:
 options:
 - version: '8.5'
   default: true
-  tag: 8.5-r2
+  tag: 8.5-r5
+  devTag: 8.5-dev-r5
 - version: '8.4'
-  tag: 8.4-r2
+  tag: 8.4-r5
+  devTag: 8.4-dev-r5
 - version: '8.3'
-  tag: 8.3-r2
+  tag: 8.3-r5
+  devTag: 8.3-dev-r5
 - version: '8.2'
-  tag: 8.2-r2
+  tag: 8.2-r5
+  devTag: 8.2-dev-r5
 links:
 - name: wp-content
   title: WP content storage
@@ -142,3 +146,6 @@ workloads:
   - name: php
     image: wodby/wordpress-php
     build: true
+
+# Parent upgrades must not enable unvalidated workspace behavior.
+workspace: false
