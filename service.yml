@@ -1,6 +1,7 @@
 name: wordpress-php
 type: service
 from: php
+guidance: GUIDANCE.md
 fromVersionConstraint: "^3.0.0"
 fromVersion: "3.0.1"
 title: PHP (WordPress)
