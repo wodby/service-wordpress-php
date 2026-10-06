@@ -66,6 +66,9 @@ cron:
 
 
 env:
+# The WordPress root, which the cron command passes to WP-CLI.
+- name: HTTP_ROOT
+  value: "${APP_ROOT}/${DOCROOT_SUBDIR}"
 - name: WP_AUTH_KEY
   value: '{{wp_auth_key}}'
   secret: true
