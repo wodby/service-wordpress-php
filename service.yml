@@ -60,7 +60,9 @@ volumes:
 cron:
 - name: cron
   title: wp cron
-  command: wp cron event run --due-now --path="${HTTP_ROOT}" 
+  # WordPress core is in the web root, or in its wp subdirectory in a project that keeps wp-content apart from core.
+  command: wp cron event run --due-now
+    --path="$(test -f "${HTTP_ROOT}/wp/wp-settings.php" && echo "${HTTP_ROOT}/wp" || echo "${HTTP_ROOT}")"
     --url="${WODBY_PRIMARY_URL}"
   schedule: 0 0 * * *
 
@@ -71,6 +73,11 @@ env:
   # Kubernetes does not expand shell variables in env values, so the root is built from the image's APP_ROOT
   # (/var/www/html) and the docroot setting.
   value: '/var/www/html/{{settings.docroot}}'
+# The code is deployed as an image: wp-admin cannot install or update plugins, themes or core.
+- name: WP_DISALLOW_FILE_MODS
+  value: '1'
+- name: WP_AUTOMATIC_UPDATER_DISABLED
+  value: '1'
 - name: WP_AUTH_KEY
   value: '{{wp_auth_key}}'
   secret: true
