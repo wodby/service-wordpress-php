@@ -3,7 +3,7 @@ type: service
 from: php
 guidance: GUIDANCE.md
 fromVersionConstraint: "^3.0.0"
-fromVersion: "3.2.4"
+fromVersion: "3.2.5"
 title: PHP (WordPress)
 labels:
 - wordpress
@@ -11,17 +11,17 @@ labels:
 options:
 - version: '8.5'
   default: true
-  tag: 8.5-r14
-  devTag: 8.5-dev-r14
+  tag: 8.5-r15
+  devTag: 8.5-dev-r15
 - version: '8.4'
-  tag: 8.4-r14
-  devTag: 8.4-dev-r14
+  tag: 8.4-r15
+  devTag: 8.4-dev-r15
 - version: '8.3'
-  tag: 8.3-r14
-  devTag: 8.3-dev-r14
+  tag: 8.3-r15
+  devTag: 8.3-dev-r15
 - version: '8.2'
-  tag: 8.2-r14
-  devTag: 8.2-dev-r14
+  tag: 8.2-r15
+  devTag: 8.2-dev-r15
 links:
 - name: wp-content
   title: WP content storage
@@ -61,9 +61,7 @@ cron:
 - name: cron
   title: wp cron
   # WordPress core is in the web root, or in its wp subdirectory in a project that keeps wp-content apart from core.
-  command: wp cron event run --due-now
-    --path="$(test -f "${HTTP_ROOT}/wp/wp-settings.php" && echo "${HTTP_ROOT}/wp" || echo "${HTTP_ROOT}")"
-    --url="${WODBY_PRIMARY_URL}"
+  command: wp cron event run --due-now --path="$(test -f "${HTTP_ROOT}/wp/wp-settings.php" && echo "${HTTP_ROOT}/wp" || echo "${HTTP_ROOT}")" --url="${WODBY_PRIMARY_URL}"
   schedule: 0 0 * * *
 
 
@@ -116,8 +114,7 @@ build:
 settings:
 - name: docroot
   title: WordPress root subdirectory
-  description: Composer-based projects have WordPress under 'web' directory by 
-    default
+  description: Composer-based projects have WordPress under 'web' directory by default
   placeholder: path/relative/to/git/root
   default: web
   var: DOCROOT_SUBDIR
