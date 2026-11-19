@@ -3,7 +3,7 @@ type: service
 from: php
 guidance: GUIDANCE.md
 fromVersionConstraint: "^3.0.0"
-fromVersion: "3.4.3"
+fromVersion: "3.4.4"
 title: PHP (WordPress)
 labels:
 - wordpress
@@ -11,17 +11,17 @@ labels:
 options:
 - version: '8.5'
   default: true
-  tag: 8.5-r19
-  devTag: 8.5-dev-r19
+  tag: 8.5-r21
+  devTag: 8.5-dev-r21
 - version: '8.4'
-  tag: 8.4-r19
-  devTag: 8.4-dev-r19
+  tag: 8.4-r21
+  devTag: 8.4-dev-r21
 - version: '8.3'
-  tag: 8.3-r19
-  devTag: 8.3-dev-r19
+  tag: 8.3-r21
+  devTag: 8.3-dev-r21
 - version: '8.2'
-  tag: 8.2-r19
-  devTag: 8.2-dev-r19
+  tag: 8.2-r21
+  devTag: 8.2-dev-r21
 links:
 - name: wp-content
   title: WP content storage
