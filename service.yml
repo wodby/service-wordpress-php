@@ -3,7 +3,7 @@ type: service
 from: php
 guidance: GUIDANCE.md
 fromVersionConstraint: "^3.0.0"
-fromVersion: "3.4.4"
+fromVersion: "3.4.5"
 title: PHP (WordPress)
 labels:
 - wordpress
@@ -12,16 +12,24 @@ options:
 - version: '8.5'
   default: true
   tag: 8.5-r21
+  digest: sha256:8af09d8ed8eeadeb9f2d39fd9952fdce73328190b66dbc9068d21d37c2376cd0
   devTag: 8.5-dev-r21
+  devDigest: sha256:dbdd672947bc9d7def6cd8b871cc6fc2d087fbb06dfd183f94b2e4d43f357184
 - version: '8.4'
   tag: 8.4-r21
+  digest: sha256:17eaf9292eed6b614c8e6551711682390f41629b3db81c5b051151685be523d4
   devTag: 8.4-dev-r21
+  devDigest: sha256:63acab07b550b8cfd3e8d0706e9e25a6d780fe91da3c904715830a8d57e54661
 - version: '8.3'
   tag: 8.3-r21
+  digest: sha256:93772afe11d3f33527b0a5492301d5d245578c40d6a9f09600c4c6b3afd784bc
   devTag: 8.3-dev-r21
+  devDigest: sha256:a0ace1906de43995c3cad4d914cf3b772f5b0ada3db9ec214a1c0d802debce16
 - version: '8.2'
   tag: 8.2-r21
+  digest: sha256:9f9ee043f2b3b3c26c5d1ddcc8ca988b1216556430f7c9dcbad36cd373cae776
   devTag: 8.2-dev-r21
+  devDigest: sha256:2036e7bc1a55b6cffd2fa35b0dfc7bba0ad092e12faed4c7c7b1e24cf7b97e54
 links:
 - name: wp-content
   title: WP content storage
@@ -61,9 +69,7 @@ cron:
 - name: cron
   title: wp cron
   # WordPress core is in the web root, or in its wp subdirectory in a project that keeps wp-content apart from core.
-  command: wp cron event run --due-now --path="$(test -f 
-    "${HTTP_ROOT}/wp/wp-settings.php" && echo "${HTTP_ROOT}/wp" || echo 
-    "${HTTP_ROOT}")" --url="${WODBY_PRIMARY_URL}"
+  command: wp cron event run --due-now --path="$(test -f "${HTTP_ROOT}/wp/wp-settings.php" && echo "${HTTP_ROOT}/wp" || echo "${HTTP_ROOT}")" --url="${WODBY_PRIMARY_URL}"
   schedule: 0 0 * * *
 
 
@@ -116,8 +122,7 @@ build:
 settings:
 - name: docroot
   title: WordPress root subdirectory
-  description: Composer-based projects have WordPress under 'web' directory by 
-    default
+  description: Composer-based projects have WordPress under 'web' directory by default
   placeholder: path/relative/to/git/root
   default: web
   var: DOCROOT_SUBDIR
